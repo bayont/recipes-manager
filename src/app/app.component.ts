@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { RecipeHttpService } from './services/recipe-http.service';
+import { Recipe } from './shared';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'recipes-manager';
+  title = 'NgRecipes';
+
+  constructor() {}
 }

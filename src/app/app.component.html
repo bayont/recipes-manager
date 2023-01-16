@@ -1,3 +1,12 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <span>{{ title }}</span>
+  <div class="spacer"></div>
+  <app-author-button></app-author-button>
 </mat-toolbar>
+
+<div class="container">
+  <app-recipes-list></app-recipes-list>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
