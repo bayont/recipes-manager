@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { RecipeHttpService } from '../services/recipe-http.service';
+import { Recipe } from '../shared';
 
 @Component({
   selector: 'app-recipes-list',
@@ -6,4 +9,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./recipes-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RecipesListComponent {}
+export class RecipesListComponent {
+  public recipes$: Observable<Recipe[]> = of([]);
+
+  constructor(private recipeHttpService: RecipeHttpService) {}
+
+  ngOnInit(): void {
+    this.recipes$ = this.recipeHttpService.fetchRecipes();
+  }
+}

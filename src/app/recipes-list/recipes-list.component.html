@@ -1,1 +1,17 @@
-<p>recipes-list works!</p>
+<mat-list role="list" class="mat-typography">
+  <mat-list-item *ngFor="let recipe of recipes$ | async">
+    <div class="flex">
+      <div class="center-self">
+        {{ recipe.name }}
+      </div>
+      <div>
+        <button mat-icon-button class="icon-small">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button class="icon-small">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-list-item>
+</mat-list>
