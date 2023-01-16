@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@include mat.core();
 
 html,
 body {
@@ -7,4 +8,6 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: mat.get-color-from-palette(mat.$gray-palette, 100);
+  color: mat.get-color-from-palette(mat.$gray-palette, 800);
 }
