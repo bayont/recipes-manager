@@ -11,3 +11,8 @@ body {
   background-color: mat.get-color-from-palette(mat.$gray-palette, 100);
   color: mat.get-color-from-palette(mat.$gray-palette, 800);
 }
+
+a,
+a:visited {
+  color: mat.get-color-from-palette(mat.$gray-palette, 800);
+}
