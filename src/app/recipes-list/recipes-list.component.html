@@ -1,5 +1,10 @@
 <mat-list role="list" class="mat-typography">
   <mat-list-item *ngFor="let recipe of recipes$ | async">
-    <app-recipe [value]="recipe"></app-recipe>
+    <app-recipe-list-element [value]="recipe"></app-recipe-list-element>
+  </mat-list-item>
+  <mat-list-item>
+    <button mat-icon-button (click)="addNewRecipe()">
+      <mat-icon> add </mat-icon>
+    </button>
   </mat-list-item>
 </mat-list>
