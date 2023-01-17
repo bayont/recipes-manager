@@ -15,6 +15,7 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { AuthorButtonComponent } from './author-button/author-button.component';
 import { DialogAuthorDetailsComponent } from './dialog-author-details/dialog-author-details.component';
 import { HttpErrorInterceptor } from './http-error.interceptor';
+import { HttpApiInterceptor } from './http-api.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,10 @@ import { HttpErrorInterceptor } from './http-error.interceptor';
     MatDialogModule,
     MatListModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpApiInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
