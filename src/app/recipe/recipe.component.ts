@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Recipe } from '../shared';
 
 @Component({
   selector: 'app-recipe',
@@ -6,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./recipe.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RecipeComponent {}
+export class RecipeComponent {
+  @Input() value!: Recipe;
+}
