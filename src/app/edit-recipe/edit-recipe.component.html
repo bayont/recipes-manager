@@ -1,0 +1,7 @@
+<div class="container" *ngIf="recipe$ | async as recipe">
+  <header>
+    <h1>
+      Edit recipe <span class="highlight-text">{{ recipe.name }}</span>
+    </h1>
+  </header>
+</div>
