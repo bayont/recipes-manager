@@ -32,10 +32,6 @@ import { FormatTimePipe } from './format-time.pipe';
 
 const routes: Routes = [
   {
-    path: 'recipes/new',
-    component: CreateRecipeComponent
-  },
-  {
     path: 'recipes/:id/edit',
     component: EditRecipeComponent
   },
