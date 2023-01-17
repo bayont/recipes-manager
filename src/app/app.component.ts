@@ -9,7 +9,7 @@ import { Recipe } from './shared';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'NgRecipes';
+  title = 'ngRecipes';
 
   constructor() {}
 }
