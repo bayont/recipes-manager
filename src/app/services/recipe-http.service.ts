@@ -25,14 +25,14 @@ export class RecipeHttpService {
     return this.http.post<Recipe>(this.RECIPE_ENDPOINT, recipe);
   }
 
-  public updateRecipe(recipe: Omit<Partial<Recipe>, '_id'>): Observable<Recipe> {
-    return this.http.patch<Recipe>(this.RECIPE_ENDPOINT, recipe);
+  public updateRecipe(recipeId: string, recipe: Omit<Recipe, '_id'>): Observable<Recipe> {
+    return this.http.put<Recipe>(`${this.RECIPE_ENDPOINT}/${recipeId}`, recipe);
   }
 
-  public deleteRecipe(recipeId: string): Observable<boolean> {
+  public deleteRecipe(recipeId: string): Observable<string> {
     return this.http.delete(`${this.RECIPE_ENDPOINT}/${recipeId}`, { observe: 'response' }).pipe(
       switchMap((response: HttpResponse<Object>) => {
-        return of(response.ok);
+        return response.ok ? of(recipeId) : of('');
       })
     );
   }

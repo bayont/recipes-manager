@@ -1,8 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { RecipeHttpService } from '../services/recipe-http.service';
 import { Recipe } from '../shared';
-
+import { actionFetchRecipes } from '../store/recipe.actions';
+import { RecipeListState } from '../store/recipe.reducer';
+import { selectRecipes } from '../store/recipe.select';
 @Component({
   selector: 'app-recipes-list',
   templateUrl: './recipes-list.component.html',
@@ -12,9 +15,10 @@ import { Recipe } from '../shared';
 export class RecipesListComponent {
   public recipes$: Observable<Recipe[]> = of([]);
 
-  constructor(private recipeHttpService: RecipeHttpService) {}
+  constructor(private store: Store<RecipeListState>) {}
 
   ngOnInit(): void {
-    this.recipes$ = this.recipeHttpService.fetchRecipes();
+    this.store.dispatch(actionFetchRecipes());
+    this.recipes$ = this.store.select(selectRecipes);
   }
 }

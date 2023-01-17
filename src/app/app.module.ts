@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import { EffectsModule } from '@ngrx/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,10 @@ import { AuthorButtonComponent } from './author-button/author-button.component';
 import { DialogAuthorDetailsComponent } from './dialog-author-details/dialog-author-details.component';
 import { HttpErrorInterceptor } from './http-error.interceptor';
 import { HttpApiInterceptor } from './http-api.interceptor';
+import { RecipeListEffects } from './store/recipe.effects';
+import { reducers } from './store/recipe.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,10 @@ import { HttpApiInterceptor } from './http-api.interceptor';
     MatButtonModule,
     MatDialogModule,
     MatListModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([RecipeListEffects]),
+    StoreDevtoolsModule.instrument(),
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },

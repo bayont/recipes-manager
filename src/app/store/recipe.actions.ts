@@ -1,0 +1,39 @@
+import { createAction, props } from '@ngrx/store';
+import { Recipe } from '../shared';
+
+export const actionFetchRecipes = createAction('[Recipe] Fetch all recipes');
+
+export const actionSetFetchedRecipes = createAction(
+  '[Recipe] Set fetched recipes',
+  props<{ recipes: Recipe[] }>()
+);
+
+export const actionDeleteRecipe = createAction(
+  '[Recipe] Delete recipe',
+  props<{ recipeId: string }>()
+);
+
+export const actionSetRemoveRecipe = createAction(
+  '[Recipe] Remove recipe from store',
+  props<{ recipeId: string }>()
+);
+
+export const actionUpdateRecipe = createAction(
+  '[Recipe] Update recipe',
+  props<{ recipe: Recipe }>()
+);
+
+export const actionSetUpdatedRecipe = createAction(
+  '[Recipe] Update recipe',
+  props<{ recipe: Recipe }>()
+);
+
+export const actionCreateRecipe = createAction(
+  '[Recipe] Create recipe',
+  props<{ recipe: Omit<Recipe, '_id'> }>()
+);
+
+export const actionAddCreatedRecipe = createAction(
+  '[Recipe] Add created recipe',
+  props<{ recipe: Recipe }>()
+);
