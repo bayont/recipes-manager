@@ -33,6 +33,8 @@ export const actionCreateRecipe = createAction(
   props<{ recipe: Omit<Recipe, '_id'> }>()
 );
 
+export const actionCreateMockRecipe = createAction('[Recipe] Create mock recipe');
+
 export const actionAddCreatedRecipe = createAction(
   '[Recipe] Add created recipe',
   props<{ recipe: Recipe }>()

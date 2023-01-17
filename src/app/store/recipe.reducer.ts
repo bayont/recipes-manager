@@ -20,7 +20,7 @@ const reducer = createReducer<Recipe[]>(
     return [...recipes];
   }),
   on(actionSetRemoveRecipe, (state, { recipeId }) => {
-    return state.filter((recipe) => recipe._id === recipeId);
+    return state.filter((recipe) => recipe._id !== recipeId);
   }),
   on(actionAddCreatedRecipe, (state, { recipe }) => {
     return [...state, recipe];
