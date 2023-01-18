@@ -17,6 +17,10 @@ a:visited {
   color: mat.get-color-from-palette(mat.$gray-palette, 800);
 }
 
+.text-muted {
+  color: mat.get-color-from-palette(mat.$gray-palette, 600);
+}
+
 .text-center {
   text-align: center;
 }
@@ -38,4 +42,12 @@ a:visited {
   background-color: mat.get-color-from-palette(mat.$indigo-palette, 600);
   border-radius: 4px;
   padding: 2px 6px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.error {
+  color: mat.get-color-from-palette(mat.$red-palette, 800);
 }
