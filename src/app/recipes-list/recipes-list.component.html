@@ -1,10 +1,19 @@
+<header>
+  <h2>Recipes list</h2>
+  <div class="searchbar-container">
+    <mat-form-field class="full-width">
+      <mat-label>Search</mat-label>
+      <input matInput [formControl]="searchBar" />
+    </mat-form-field>
+  </div>
+</header>
 <mat-list role="list" class="mat-typography">
   <mat-list-item *ngFor="let recipe of recipes$ | async">
     <app-recipe-list-element [value]="recipe"></app-recipe-list-element>
   </mat-list-item>
   <mat-list-item>
-    <button mat-icon-button (click)="addNewRecipe()">
-      <mat-icon> add </mat-icon>
+    <button mat-button (click)="addNewRecipe()" color="primary">
+      <mat-icon> add </mat-icon> Create new recipe
     </button>
   </mat-list-item>
 </mat-list>
