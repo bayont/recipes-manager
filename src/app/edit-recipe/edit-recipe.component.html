@@ -8,7 +8,7 @@
     <div *ngIf="editRecipeForm.controls['name'] as name" class="input-container">
       <mat-form-field>
         <mat-label>Name</mat-label>
-        <input matInput formControlName="name" [recipeNameValidator]="recipe._id" />
+        <input matInput formControlName="name" [recipeNameValidator]="recipe._id" id="name" />
       </mat-form-field>
       <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
         <div *ngIf="name.errors?.['required']">Name is required.</div>
@@ -26,7 +26,13 @@
     >
       <mat-form-field>
         <mat-label>Preparation time (minutes)</mat-label>
-        <input matInput type="number" formControlName="preparationTimeInMinutes" min="1" />
+        <input
+          matInput
+          type="number"
+          formControlName="preparationTimeInMinutes"
+          id="preparationTimeInMinutes"
+          min="1"
+        />
       </mat-form-field>
       <div
         *ngIf="
@@ -47,7 +53,7 @@
     <div *ngIf="editRecipeForm.controls['description'] as description" class="input-container">
       <mat-form-field class="long-field">
         <mat-label>Description</mat-label>
-        <textarea matInput formControlName="description"></textarea>
+        <textarea matInput formControlName="description" id="description"></textarea>
       </mat-form-field>
       <div *ngIf="description.invalid && (description.dirty || description.touched)">
         <mat-error *ngIf="description.errors?.['required']">Description is required.</mat-error>
@@ -125,7 +131,7 @@
 
     <div class="actions">
       <button mat-flat-button routerLink="/recipes" color="secondary">Cancel</button>
-      <button mat-flat-button type="submit" color="primary">Save</button>
+      <button mat-flat-button type="submit" color="primary" id="save">Save</button>
     </div>
   </form>
 </div>

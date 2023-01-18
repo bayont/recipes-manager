@@ -3,11 +3,11 @@
   <div class="searchbar-container">
     <mat-form-field class="full-width">
       <mat-label>Search</mat-label>
-      <input matInput [formControl]="searchBar" />
+      <input matInput [formControl]="searchBar" id="searchbar" />
     </mat-form-field>
   </div>
 </header>
-<mat-list role="list" class="mat-typography">
+<mat-list role="list" id="list" class="mat-typography">
   <mat-list-item *ngFor="let recipe of recipes$ | async">
     <app-recipe-list-element [value]="recipe"></app-recipe-list-element>
   </mat-list-item>

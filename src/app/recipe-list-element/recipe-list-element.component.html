@@ -1,7 +1,9 @@
 <a routerLink="/recipes/{{ value._id }}" routerLinkActive="active" class="full-link"></a>
 <div class="flex">
   <div class="center-self">
-    {{ value.name }}
+    <span class="recipe-list-element">
+      {{ value.name }}
+    </span>
   </div>
   <div>
     <button mat-icon-button class="icon-small" routerLink="/recipes/{{ value._id }}/edit">
