@@ -15,7 +15,6 @@ export class RecipeListElementComponent {
   constructor(private store: Store<RecipeListState>) {}
 
   public deleteRecipe() {
-    console.log('deleting!');
     this.store.dispatch(actionDeleteRecipe({ recipeId: this.value._id }));
   }
 }
