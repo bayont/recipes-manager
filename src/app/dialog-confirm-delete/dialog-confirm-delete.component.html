@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Delete recipe</h2>
+<mat-dialog-content>
+  <p>
+    Do you really want to delete <span class="highlight-text">{{ recipe.name }}</span
+    >?
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button mat-dialog-close color="primary" (click)="deleteRecipe()">Yes</button>
+</mat-dialog-actions>

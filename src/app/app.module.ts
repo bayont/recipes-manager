@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,7 +11,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTableModule } from '@angular/material/table';
-import { EffectsModule } from '@ngrx/effects';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +31,9 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { DefaultViewComponent } from './default-view/default-view.component';
 import { FormatTimePipe } from './format-time.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogConfirmDeleteComponent } from './dialog-confirm-delete/dialog-confirm-delete.component';
+import { RecipeNameValidatorDirective } from './edit-recipe/recipe-name-validator.directive';
 
 const routes: Routes = [
   {
@@ -59,10 +64,14 @@ const routes: Routes = [
     DefaultViewComponent,
     RecipeDetailsComponent,
     EditRecipeComponent,
-    FormatTimePipe
+    FormatTimePipe,
+    DialogConfirmDeleteComponent,
+    RecipeNameValidatorDirective
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -73,6 +82,8 @@ const routes: Routes = [
     MatListModule,
     MatChipsModule,
     MatTableModule,
+    MatInputModule,
+    MatSnackBarModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([RecipeListEffects]),
