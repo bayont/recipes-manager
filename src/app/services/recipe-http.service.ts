@@ -25,8 +25,15 @@ export class RecipeHttpService {
     return this.http.post<Recipe>(this.RECIPE_ENDPOINT, recipe);
   }
 
-  public updateRecipe(recipeId: string, recipe: Omit<Recipe, '_id'>): Observable<Recipe> {
-    return this.http.put<Recipe>(`${this.RECIPE_ENDPOINT}/${recipeId}`, recipe);
+  public updateRecipe(recipe: Recipe): Observable<string> {
+    const { _id, ...recipeWithStrippedId } = recipe;
+    return this.http
+      .put(`${this.RECIPE_ENDPOINT}/${_id}`, recipeWithStrippedId, { observe: 'response' })
+      .pipe(
+        switchMap((response: HttpResponse<Object>) => {
+          return response.ok ? of(_id) : of('');
+        })
+      );
   }
 
   public deleteRecipe(recipeId: string): Observable<string> {
