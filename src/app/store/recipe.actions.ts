@@ -8,6 +8,11 @@ export const actionSetFetchedRecipes = createAction(
   props<{ recipes: Recipe[] }>()
 );
 
+export const actionDeleteRecipeWithDialog = createAction(
+  '[Recipe] Delete recipe with dialog',
+  props<{ recipe: Recipe }>()
+);
+
 export const actionDeleteRecipe = createAction(
   '[Recipe] Delete recipe',
   props<{ recipeId: string }>()
@@ -24,8 +29,8 @@ export const actionUpdateRecipe = createAction(
 );
 
 export const actionSetUpdatedRecipe = createAction(
-  '[Recipe] Update recipe',
-  props<{ recipe: Recipe }>()
+  '[Recipe] Set Updated recipe',
+  props<{ recipe: Recipe; recipeId: string }>()
 );
 
 export const actionCreateRecipe = createAction(

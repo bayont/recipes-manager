@@ -25,8 +25,8 @@ const reducer = createReducer<Recipe[]>(
   on(actionAddCreatedRecipe, (state, { recipe }) => {
     return [...state, recipe];
   }),
-  on(actionSetUpdatedRecipe, (state, { recipe }) => {
-    return state.map((item) => (item._id === recipe._id ? recipe : item));
+  on(actionSetUpdatedRecipe, (state, { recipe, recipeId }) => {
+    return state.map((item) => (item._id === recipeId ? { ...item, ...recipe } : item));
   })
 );
 
