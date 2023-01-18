@@ -34,6 +34,8 @@ import { FormatTimePipe } from './format-time.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogConfirmDeleteComponent } from './dialog-confirm-delete/dialog-confirm-delete.component';
 import { RecipeNameValidatorDirective } from './edit-recipe/recipe-name-validator.directive';
+import { MaterialModule } from './material.module';
+import { RecipeHttpService } from './services/recipe-http.service';
 
 const routes: Routes = [
   {
@@ -71,19 +73,11 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatListModule,
-    MatChipsModule,
-    MatTableModule,
-    MatInputModule,
-    MatSnackBarModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([RecipeListEffects]),
@@ -91,6 +85,7 @@ const routes: Routes = [
     StoreRouterConnectingModule.forRoot()
   ],
   providers: [
+    RecipeHttpService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpApiInterceptor, multi: true }
   ],
