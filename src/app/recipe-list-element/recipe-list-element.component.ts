@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Recipe } from '../shared';
-import { actionDeleteRecipe, actionDeleteRecipeWithDialog } from '../store/recipe.actions';
+import { actionDeleteRecipeWithDialog } from '../store/recipe.actions';
 import { RecipeListState } from '../store/recipe.reducer';
 
 @Component({

@@ -14,14 +14,12 @@ import {
   actionSetUpdatedRecipe,
   actionUpdateRecipe
 } from './recipe.actions';
-import { combineLatest, empty, EMPTY, map, of, repeat, switchMap, tap } from 'rxjs';
+import { combineLatest, map, of, repeat, switchMap, tap } from 'rxjs';
 import { RecipeHttpService } from '../services/recipe-http.service';
 import { Router } from '@angular/router';
 import { Recipe } from '../shared';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogAuthorDetailsComponent } from '../dialog-author-details/dialog-author-details.component';
 import { DialogConfirmDeleteComponent } from '../dialog-confirm-delete/dialog-confirm-delete.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { selectRecipes } from './recipe.select';
 
 @Injectable()

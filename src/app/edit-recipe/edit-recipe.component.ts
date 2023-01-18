@@ -1,12 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  AbstractControl,
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators
-} from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import {
@@ -16,9 +9,7 @@ import {
   of,
   Subject,
   switchMap,
-  take,
-  takeUntil,
-  takeWhile
+  takeUntil
 } from 'rxjs';
 import { Ingredient, Recipe } from '../shared';
 import { actionUpdateRecipe } from '../store/recipe.actions';

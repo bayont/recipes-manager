@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import { Action, ActionReducerMap, createReducer, on, State, Store } from '@ngrx/store';
+import { ActionReducerMap, createReducer, on } from '@ngrx/store';
 import { Recipe } from '../shared';
 import {
   actionAddCreatedRecipe,
