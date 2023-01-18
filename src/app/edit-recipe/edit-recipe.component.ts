@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -28,7 +28,8 @@ import { selectRecipes } from '../store/recipe.select';
 @Component({
   selector: 'app-edit-recipe',
   templateUrl: './edit-recipe.component.html',
-  styleUrls: ['./edit-recipe.component.scss']
+  styleUrls: ['./edit-recipe.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditRecipeComponent {
   private destructor: Subject<boolean> = new Subject();

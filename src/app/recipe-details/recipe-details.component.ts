@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable, of, Subject, switchMap, takeUntil } from 'rxjs';
@@ -10,7 +10,8 @@ import { selectRecipes } from '../store/recipe.select';
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
-  styleUrls: ['./recipe-details.component.scss']
+  styleUrls: ['./recipe-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecipeDetailsComponent implements OnInit, OnDestroy {
   private destructor: Subject<boolean> = new Subject();
