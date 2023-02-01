@@ -1,4 +1,4 @@
-import { ActionReducerMap, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { Recipe } from '../shared';
 import {
   actionAddCreatedRecipe,
@@ -8,27 +8,21 @@ import {
 } from './recipe.actions';
 
 export interface RecipeListState {
-  recipes: Recipe[];
+  items: Recipe[];
 }
 
 const initialState: Recipe[] = [];
 
-const reducer = createReducer<Recipe[]>(
+export const recipesReducer = createReducer<Recipe[]>(
   initialState,
-  on(actionSetFetchedRecipes, (state, { recipes }) => {
-    return [...recipes];
-  }),
+  on(actionSetFetchedRecipes, (state, { recipes }): Recipe[] => [...recipes]),
   on(actionSetRemoveRecipe, (state, { recipeId }) => {
     return state.filter((recipe) => recipe._id !== recipeId);
   }),
-  on(actionAddCreatedRecipe, (state, { recipe }) => {
+  on(actionAddCreatedRecipe, (state, { recipe }): Recipe[] => {
     return [...state, recipe];
   }),
   on(actionSetUpdatedRecipe, (state, { recipe, recipeId }) => {
     return state.map((item) => (item._id === recipeId ? { ...item, ...recipe } : item));
   })
 );
-
-export const reducers: ActionReducerMap<RecipeListState> = {
-  recipes: reducer
-};

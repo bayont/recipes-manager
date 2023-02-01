@@ -30,7 +30,7 @@ export class RecipeHttpService {
     return this.http
       .put(`${this.RECIPE_ENDPOINT}/${_id}`, recipeWithStrippedId, { observe: 'response' })
       .pipe(
-        switchMap((response: HttpResponse<Object>) => {
+        switchMap((response: HttpResponse<object>) => {
           return response.ok ? of(_id) : of('');
         })
       );
@@ -38,7 +38,7 @@ export class RecipeHttpService {
 
   public deleteRecipe(recipeId: string): Observable<string> {
     return this.http.delete(`${this.RECIPE_ENDPOINT}/${recipeId}`, { observe: 'response' }).pipe(
-      switchMap((response: HttpResponse<Object>) => {
+      switchMap((response: HttpResponse<object>) => {
         return response.ok ? of(recipeId) : of('');
       })
     );
