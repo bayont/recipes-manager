@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -13,7 +13,6 @@ import {
 } from 'rxjs';
 import { Ingredient, Recipe } from '../shared';
 import { actionUpdateRecipe } from '../store/recipe.actions';
-import { RecipeListState } from '../store/recipe.reducer';
 import { selectRecipes } from '../store/recipe.select';
 
 @Component({
@@ -22,12 +21,12 @@ import { selectRecipes } from '../store/recipe.select';
   styleUrls: ['./edit-recipe.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EditRecipeComponent {
+export class EditRecipeComponent implements OnDestroy, OnInit {
   private destructor: Subject<boolean> = new Subject();
 
   constructor(
     private route: ActivatedRoute,
-    private store: Store<RecipeListState>,
+    private store: Store,
     private fb: FormBuilder,
     private router: Router
   ) {}
@@ -73,7 +72,7 @@ export class EditRecipeComponent {
     this.updateIngredientsView();
   }
 
-  public onSubmit(event: Event) {
+  public onSubmit() {
     if (this.editRecipeForm.valid) {
       this.store.dispatch(actionUpdateRecipe({ recipe: this.editRecipeForm.value as Recipe }));
     }
@@ -98,7 +97,7 @@ export class EditRecipeComponent {
     this.updateIngredientsView();
   }
 
-  private buildIngredientRow(id: string = '1') {
+  private buildIngredientRow(id = '1') {
     return this.fb.group({
       _id: [id],
       name: [''],

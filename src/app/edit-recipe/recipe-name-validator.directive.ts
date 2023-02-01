@@ -9,7 +9,7 @@ import { Observable, of, switchMap, timer } from 'rxjs';
 import { RecipeHttpService } from '../services/recipe-http.service';
 
 @Directive({
-  selector: '[recipeNameValidator]',
+  selector: '[appRecipeNameValidator]',
   providers: [
     {
       provide: NG_ASYNC_VALIDATORS,
@@ -19,11 +19,11 @@ import { RecipeHttpService } from '../services/recipe-http.service';
   ]
 })
 export class RecipeNameValidatorDirective implements AsyncValidator {
-  @Input('recipeNameValidator') recipeId: string = '';
+  @Input('appRecipeNameValidator') recipeId = '';
 
   constructor(private recipeHttpService: RecipeHttpService) {}
 
-  validate(control: AbstractControl<string, any>): Observable<ValidationErrors | null> {
+  validate(control: AbstractControl<string, string>): Observable<ValidationErrors | null> {
     const nameToCheck = control.value;
     return timer(1000).pipe(
       switchMap(() =>

@@ -4,7 +4,6 @@ import { Store } from '@ngrx/store';
 import { combineLatest, Observable, of, Subject, switchMap, takeUntil } from 'rxjs';
 import { Recipe } from '../shared';
 import { actionDeleteRecipeWithDialog } from '../store/recipe.actions';
-import { RecipeListState } from '../store/recipe.reducer';
 import { selectRecipes } from '../store/recipe.select';
 
 @Component({
@@ -16,11 +15,7 @@ import { selectRecipes } from '../store/recipe.select';
 export class RecipeDetailsComponent implements OnInit, OnDestroy {
   private destructor: Subject<boolean> = new Subject();
 
-  constructor(
-    private route: ActivatedRoute,
-    private store: Store<RecipeListState>,
-    private router: Router
-  ) {}
+  constructor(private route: ActivatedRoute, private store: Store, private router: Router) {}
 
   public recipe$!: Observable<Recipe | undefined>;
 
