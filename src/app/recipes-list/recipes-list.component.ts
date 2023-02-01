@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { combineLatest, Observable, of, startWith, switchMap } from 'rxjs';
 import { Recipe } from '../shared';
 import { actionCreateMockRecipe, actionFetchRecipes } from '../store/recipe.actions';
@@ -12,11 +12,11 @@ import { selectRecipes } from '../store/recipe.select';
   styleUrls: ['./recipes-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RecipesListComponent {
+export class RecipesListComponent implements OnInit {
   public recipes$: Observable<Recipe[]> = of([]);
   public searchBar = new FormControl('');
 
-  constructor(private store: Store<RecipeListState>) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.store.dispatch(actionFetchRecipes());

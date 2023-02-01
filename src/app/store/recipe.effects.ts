@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
-import { RecipeListState } from './recipe.reducer';
 import {
   actionAddCreatedRecipe,
   actionCreateMockRecipe,
@@ -26,7 +25,7 @@ import { selectRecipes } from './recipe.select';
 export class RecipeListEffects {
   constructor(
     private readonly action$: Actions,
-    private store: Store<RecipeListState>,
+    private store: Store,
     private recipeHttpService: RecipeHttpService,
     private router: Router,
     private dialog: MatDialog

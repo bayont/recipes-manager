@@ -1,18 +1,9 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatListModule } from '@angular/material/list';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatTableModule } from '@angular/material/table';
-import { MatInputModule } from '@angular/material/input';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +14,7 @@ import { DialogAuthorDetailsComponent } from './dialog-author-details/dialog-aut
 import { HttpErrorInterceptor } from './http-error.interceptor';
 import { HttpApiInterceptor } from './http-api.interceptor';
 import { RecipeListEffects } from './store/recipe.effects';
-import { reducers } from './store/recipe.reducer';
+import { recipesReducer } from './store/recipe.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { RouterModule, Routes } from '@angular/router';
@@ -36,6 +27,7 @@ import { DialogConfirmDeleteComponent } from './dialog-confirm-delete/dialog-con
 import { RecipeNameValidatorDirective } from './edit-recipe/recipe-name-validator.directive';
 import { MaterialModule } from './material.module';
 import { RecipeHttpService } from './services/recipe-http.service';
+import { RECIPES_FEATURE_NAME } from './store/recipe.select';
 
 const routes: Routes = [
   {
@@ -79,7 +71,8 @@ const routes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(),
+    StoreModule.forFeature(RECIPES_FEATURE_NAME, recipesReducer),
     EffectsModule.forRoot([RecipeListEffects]),
     StoreDevtoolsModule.instrument(),
     StoreRouterConnectingModule.forRoot()

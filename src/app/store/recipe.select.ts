@@ -1,6 +1,8 @@
-import { createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { RecipeListState } from './recipe.reducer';
 
-export const selectStore = (state: RecipeListState) => state;
+export const RECIPES_FEATURE_NAME = 'recipes';
 
-export const selectRecipes = createSelector(selectStore, (state) => state.recipes);
+export const selectFeature = createFeatureSelector<RecipeListState>(RECIPES_FEATURE_NAME);
+
+export const selectRecipes = createSelector(selectFeature, (state) => state.items);
