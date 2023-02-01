@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Recipe } from '../shared';
 import { actionDeleteRecipeWithDialog } from '../store/recipe.actions';
-import { RecipeListState } from '../store/recipe.reducer';
 
 @Component({
   selector: 'app-recipe-list-element',
@@ -12,7 +11,7 @@ import { RecipeListState } from '../store/recipe.reducer';
 })
 export class RecipeListElementComponent {
   @Input() value!: Recipe;
-  constructor(private store: Store<RecipeListState>) {}
+  constructor(private store: Store) {}
 
   public deleteRecipe() {
     this.store.dispatch(actionDeleteRecipeWithDialog({ recipe: this.value }));

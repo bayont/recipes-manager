@@ -1,7 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { RecipeHttpService } from './services/recipe-http.service';
-import { Recipe } from './shared';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +8,4 @@ import { Recipe } from './shared';
 })
 export class AppComponent {
   title = 'ngRecipes';
-
-  constructor() {}
 }

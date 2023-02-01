@@ -4,11 +4,11 @@
       Edit recipe <span class="highlight-text">{{ editRecipeForm.controls['name'].value }}</span>
     </h1>
   </header>
-  <form [formGroup]="editRecipeForm" (submit)="onSubmit($event)">
+  <form [formGroup]="editRecipeForm" (submit)="onSubmit()">
     <div *ngIf="editRecipeForm.controls['name'] as name" class="input-container">
       <mat-form-field>
         <mat-label>Name</mat-label>
-        <input matInput formControlName="name" [recipeNameValidator]="recipe._id" id="name" />
+        <input matInput formControlName="name" [appRecipeNameValidator]="recipe._id" id="name" />
       </mat-form-field>
       <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
         <div *ngIf="name.errors?.['required']">Name is required.</div>
