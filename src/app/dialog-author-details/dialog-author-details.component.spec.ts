@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialModule } from '../material.module';
 
 import { DialogAuthorDetailsComponent } from './dialog-author-details.component';
 
@@ -8,9 +9,9 @@ describe('DialogAuthorDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogAuthorDetailsComponent ]
-    })
-    .compileComponents();
+      declarations: [DialogAuthorDetailsComponent],
+      imports: [MaterialModule]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DialogAuthorDetailsComponent);
     component = fixture.componentInstance;

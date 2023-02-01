@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 
 import { EditRecipeComponent } from './edit-recipe.component';
 
@@ -8,9 +10,10 @@ describe('EditRecipeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditRecipeComponent ]
-    })
-    .compileComponents();
+      declarations: [EditRecipeComponent],
+      imports: [RouterTestingModule],
+      providers: [provideMockStore()]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EditRecipeComponent);
     component = fixture.componentInstance;
