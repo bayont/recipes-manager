@@ -3,7 +3,6 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { RecipeDetailsComponent } from './recipe-details.component';
-import { Store } from '@ngrx/store';
 import { RecipeListState } from '../store/recipe.reducer';
 
 describe('RecipeDetailsComponent', () => {
@@ -11,11 +10,9 @@ describe('RecipeDetailsComponent', () => {
   let fixture: ComponentFixture<RecipeDetailsComponent>;
   let store: MockStore<RecipeListState>;
 
-  const initialState: RecipeListState = {
-    items: [
-      { _id: '1', description: '', ingredients: [], name: 'recipe', preparationTimeInMinutes: 10 }
-    ]
-  };
+  const initialState: RecipeListState = [
+    { _id: '1', description: '', ingredients: [], name: 'recipe', preparationTimeInMinutes: 10 }
+  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

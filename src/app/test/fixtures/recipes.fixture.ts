@@ -3,9 +3,20 @@ import { Recipe } from 'src/app/shared';
 export const recipesFixtures: Recipe[] = [
   {
     _id: '1',
-    description: 'This is a description',
-    ingredients: [{ _id: '1', name: 'Ingredient1', quantity: '2' }],
-    name: 'RecipeName',
-    preparationTimeInMinutes: 25
+    name: 'New recipe',
+    description: 'Describe here step-by-step entire process of creating this meal...',
+    preparationTimeInMinutes: 10,
+    ingredients: [
+      {
+        _id: '1',
+        name: 'Ingredient 1',
+        quantity: '1'
+      },
+      {
+        _id: '2',
+        name: 'Ingredient 2',
+        quantity: '3'
+      }
+    ]
   }
 ];
