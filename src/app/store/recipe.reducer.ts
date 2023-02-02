@@ -7,9 +7,7 @@ import {
   actionSetUpdatedRecipe
 } from './recipe.actions';
 
-export interface RecipeListState {
-  items: Recipe[];
-}
+export type RecipeListState = Recipe[];
 
 const initialState: Recipe[] = [];
 

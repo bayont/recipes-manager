@@ -61,6 +61,7 @@ export class RecipeListEffects {
       ofType(actionCreateMockRecipe),
       concatLatestFrom(() => this.store.select(selectRecipes)),
       map(([, recipes]) => {
+        console.log(recipes);
         const namesTaken: string[] = recipes.map((recipe) => recipe.name);
 
         let recipeName = `New recipe`;
