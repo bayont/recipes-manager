@@ -1,13 +1,19 @@
 import { TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 import { AppComponent } from './app.component';
+import { AuthorButtonComponent } from './author-button/author-button.component';
 import { MaterialModule } from './material.module';
+import { RecipesListComponent } from './recipes-list/recipes-list.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, MaterialModule],
-      declarations: [AppComponent]
+      imports: [RouterTestingModule, MaterialModule, ReactiveFormsModule, NoopAnimationsModule],
+      declarations: [AppComponent, AuthorButtonComponent, RecipesListComponent],
+      providers: [provideMockStore()]
     }).compileComponents();
   });
 
