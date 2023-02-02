@@ -23,4 +23,10 @@ describe('EditRecipeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should not be valid form', () => {
+    fixture.whenRenderingDone().then(() => {
+      expect(component.editRecipeForm.invalid).toBeTrue();
+    });
+  });
 });
