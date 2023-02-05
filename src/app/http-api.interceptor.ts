@@ -1,11 +1,8 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpHandlerFn, HttpRequest } from '@angular/common/http';
 
-export class HttpApiInterceptor implements HttpInterceptor {
-  intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const newReq = req.clone({
-      headers: req.headers.set('X-Requested-With', 'HoA') // X-API-KEY blocked by CORS
-    });
-    return next.handle(newReq);
-  }
+export function HttpApiInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn) {
+  const newReq = req.clone({
+    headers: req.headers.set('X-Requested-With', 'HoA') // X-API-KEY blocked by CORS
+  });
+  return next(newReq);
 }

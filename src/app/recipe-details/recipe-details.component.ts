@@ -1,7 +1,12 @@
+import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable, of, Subject, switchMap, takeUntil } from 'rxjs';
+import { FormatTimePipe } from '../format-time.pipe';
 import { Recipe } from '../shared';
 import { actionDeleteRecipeWithDialog } from '../store/recipe.actions';
 import { selectRecipes } from '../store/recipe.select';
@@ -10,7 +15,17 @@ import { selectRecipes } from '../store/recipe.select';
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
   styleUrls: ['./recipe-details.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    MatButtonModule,
+    MatIconModule,
+    MatTableModule,
+    RouterLink,
+    FormatTimePipe,
+    NgIf,
+    AsyncPipe
+  ]
 })
 export class RecipeDetailsComponent implements OnInit, OnDestroy {
   private destructor: Subject<boolean> = new Subject();

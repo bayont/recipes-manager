@@ -4,6 +4,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-default-view',
   templateUrl: './default-view.component.html',
   styleUrls: ['./default-view.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: []
 })
 export class DefaultViewComponent {}

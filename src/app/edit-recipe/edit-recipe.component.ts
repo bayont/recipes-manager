@@ -1,5 +1,18 @@
+import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import {
@@ -14,12 +27,25 @@ import {
 import { Ingredient, Recipe } from '../shared';
 import { actionUpdateRecipe } from '../store/recipe.actions';
 import { selectRecipes } from '../store/recipe.select';
+import { RecipeNameValidatorDirective } from './recipe-name-validator.directive';
 
 @Component({
   selector: 'app-edit-recipe',
   templateUrl: './edit-recipe.component.html',
   styleUrls: ['./edit-recipe.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    RecipeNameValidatorDirective,
+    NgIf,
+    MatIconModule,
+    MatFormFieldModule,
+    MatTableModule,
+    AsyncPipe,
+    MatInputModule,
+    MatButtonModule
+  ]
 })
 export class EditRecipeComponent implements OnDestroy, OnInit {
   private destructor: Subject<boolean> = new Subject();
