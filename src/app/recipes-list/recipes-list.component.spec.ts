@@ -12,8 +12,7 @@ describe('RecipesListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RecipesListComponent],
-      imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule],
+      imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule, RecipesListComponent],
       providers: [provideMockStore()]
     }).compileComponents();
 

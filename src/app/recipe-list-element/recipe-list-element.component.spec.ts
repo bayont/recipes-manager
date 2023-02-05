@@ -12,8 +12,7 @@ describe('RecipeListElementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RecipeListElementComponent],
-      imports: [MaterialModule, RouterTestingModule],
+      imports: [RecipeListElementComponent, MaterialModule, RouterTestingModule],
       providers: [provideMockStore()]
     }).compileComponents();
 

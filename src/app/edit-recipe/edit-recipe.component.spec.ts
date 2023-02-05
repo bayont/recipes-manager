@@ -21,8 +21,9 @@ describe('EditRecipeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EditRecipeComponent, RecipeNameValidatorDirective],
       imports: [
+        EditRecipeComponent,
+        RecipeNameValidatorDirective,
         RouterTestingModule,
         MaterialModule,
         ReactiveFormsModule,

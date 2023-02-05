@@ -11,8 +11,15 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, MaterialModule, ReactiveFormsModule, NoopAnimationsModule],
-      declarations: [AppComponent, AuthorButtonComponent, RecipesListComponent],
+      imports: [
+        AppComponent,
+        AuthorButtonComponent,
+        RecipesListComponent,
+        RouterTestingModule,
+        MaterialModule,
+        ReactiveFormsModule,
+        NoopAnimationsModule
+      ],
       providers: [provideMockStore()]
     }).compileComponents();
   });

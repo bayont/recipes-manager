@@ -15,8 +15,7 @@ describe('DialogConfirmDeleteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DialogConfirmDeleteComponent],
-      imports: [MaterialModule],
+      imports: [MaterialModule, DialogConfirmDeleteComponent],
       providers: [{ provide: MAT_DIALOG_DATA, useValue: recipeFixture }, provideMockStore()]
     }).compileComponents();
 

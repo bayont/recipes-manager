@@ -9,8 +9,7 @@ describe('AuthorButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AuthorButtonComponent],
-      imports: [MaterialModule]
+      imports: [AuthorButtonComponent, MaterialModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AuthorButtonComponent);

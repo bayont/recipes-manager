@@ -16,8 +16,7 @@ describe('RecipeDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [RecipeDetailsComponent],
+      imports: [RecipeDetailsComponent, RouterTestingModule],
       providers: [provideMockStore({ initialState })]
     }).compileComponents();
 
