@@ -10,6 +10,7 @@ import { RecipeHttpService } from '../services/recipe-http.service';
 
 @Directive({
   selector: '[appRecipeNameValidator]',
+  standalone: true,
   providers: [
     {
       provide: NG_ASYNC_VALIDATORS,
