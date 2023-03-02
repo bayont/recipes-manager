@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { AppComponent } from './app.component';
 import { AuthorButtonComponent } from './author-button/author-button.component';
-import { MaterialModule } from './material.module';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 
 describe('AppComponent', () => {
@@ -16,7 +16,7 @@ describe('AppComponent', () => {
         AuthorButtonComponent,
         RecipesListComponent,
         RouterTestingModule,
-        MaterialModule,
+        MatToolbarModule,
         ReactiveFormsModule,
         NoopAnimationsModule
       ],

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { provideMockStore } from '@ngrx/store/testing';
-import { MaterialModule } from '../material.module';
 import { Recipe } from '../shared';
 import { recipesFixtures } from '../test/fixtures/recipes.fixture';
 
@@ -15,7 +15,7 @@ describe('DialogConfirmDeleteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MaterialModule, DialogConfirmDeleteComponent],
+      imports: [MatDialogModule, MatButtonModule, DialogConfirmDeleteComponent],
       providers: [{ provide: MAT_DIALOG_DATA, useValue: recipeFixture }, provideMockStore()]
     }).compileComponents();
 

@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
-import { MaterialModule } from '../material.module';
 import { Recipe } from '../shared';
 
 import { RecipeListElementComponent } from './recipe-list-element.component';
@@ -12,7 +13,7 @@ describe('RecipeListElementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RecipeListElementComponent, MaterialModule, RouterTestingModule],
+      imports: [RecipeListElementComponent, MatIconModule, MatButtonModule, RouterTestingModule],
       providers: [provideMockStore()]
     }).compileComponents();
 

@@ -1,12 +1,16 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { of } from 'rxjs';
-import { MaterialModule } from '../material.module';
 import { Recipe } from '../shared';
 import { recipesFixtures } from '../test/fixtures/recipes.fixture';
 
@@ -25,7 +29,11 @@ describe('EditRecipeComponent', () => {
         EditRecipeComponent,
         RecipeNameValidatorDirective,
         RouterTestingModule,
-        MaterialModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatTableModule,
+        MatInputModule,
+        MatButtonModule,
         ReactiveFormsModule,
         HttpClientModule,
         NoopAnimationsModule
