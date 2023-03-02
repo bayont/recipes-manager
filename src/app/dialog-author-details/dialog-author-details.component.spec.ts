@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 import { DialogAuthorDetailsComponent } from './dialog-author-details.component';
 
@@ -8,9 +11,8 @@ describe('DialogAuthorDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogAuthorDetailsComponent ]
-    })
-    .compileComponents();
+      imports: [DialogAuthorDetailsComponent, MatDialogModule, MatIconModule, MatButtonModule]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DialogAuthorDetailsComponent);
     component = fixture.componentInstance;

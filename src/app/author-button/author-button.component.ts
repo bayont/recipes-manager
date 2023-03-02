@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { DialogAuthorDetailsComponent } from '../dialog-author-details/dialog-author-details.component';
 
@@ -10,7 +10,7 @@ import { DialogAuthorDetailsComponent } from '../dialog-author-details/dialog-au
   styleUrls: ['./author-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [MatButtonModule, MatIconModule]
+  imports: [MatButtonModule, MatIconModule, MatDialogModule]
 })
 export class AuthorButtonComponent {
   constructor(private dialog: MatDialog) {}
